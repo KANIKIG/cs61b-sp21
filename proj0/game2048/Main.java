@@ -4,8 +4,10 @@ import java.util.Random;
 
 import ucb.util.CommandArgs;
 
-/** The main class for the 2048 game.
- *  @author P. N. Hilfinger
+/**
+ * The main class for the 2048 game.
+ * 
+ * @author P. N. Hilfinger
  */
 public class Main {
 
@@ -14,16 +16,17 @@ public class Main {
     /** Probability of choosing 2 as random tile (as opposed to 4). */
     static final double TILE2_PROBABILITY = 0.9;
 
-    /** The main program.  ARGS may contain the options --seed=NUM,
-     *  (random seed); --log (record moves and random tiles
-     *  selected.). */
+    /**
+     * The main program. ARGS may contain the options --seed=NUM,
+     * (random seed); --log (record moves and random tiles
+     * selected.).
+     */
     public static void main(String... args) {
-        CommandArgs options =
-            new CommandArgs("--seed=(\\d+) --log=(.+)",
-                            args);
+        CommandArgs options = new CommandArgs("--seed=(\\d+) --log=(.+)",
+                args);
         if (!options.ok()) {
             System.err.println("Usage: java game2048.Main [ --seed=NUM ] "
-                               + "[ --log=LOG_FILE ]");
+                    + "[ --log=LOG_FILE ]");
             System.exit(1);
         }
 
@@ -42,7 +45,7 @@ public class Main {
         InputSource inp;
 
         inp = new GUISource(gui, gen, TILE2_PROBABILITY,
-                            options.getFirst("--log"));
+                options.getFirst("--log"));
 
         Game game = new Game(model, inp);
 

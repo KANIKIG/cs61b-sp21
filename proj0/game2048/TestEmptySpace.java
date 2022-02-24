@@ -86,7 +86,6 @@ public class TestEmptySpace {
         };
 
         b = new Board(rawVals, 0);
-
         assertTrue("Right col is empty\n" + b,
                 Model.emptySpaceExists(b));
     }
