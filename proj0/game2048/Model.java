@@ -134,26 +134,43 @@ public class Model extends Observable {
             for (int row = board.size() - 1; row >= 0; row -= 1) {
                 Tile t1 = board.tile(col, row);
                 if (t1 != null) {
-                    for (int row2 = row; row2 >= 0; row2 -= 1) {
+                    for (int row2 = row - 1; row2 >= 0; row2 -= 1) {
                         Tile t2 = board.tile(col, row2);
-                        if (t2 != null && t1.value() == t2.value()) {
-                            board.move(col, row, t2);
-                            changed = true;
-                            score += 2 * t1.value();
+                        if (t2 != null) {
+                            if (t1.value() == t2.value()) {
+                                board.move(col, row, t2);
+                                changed = true;
+                                score += 2 * t1.value();
+                                row = row2;
+                                break;
+                            } else {
+                                break;
+                            }
+                        } else {
+                            continue;
                         }
                     }
-                } else {
-                    for (int row2 = row; row2 >= 0; row2 -= 1) {
+                }
+
+            }
+        }
+
+        for (int col = 0; col < board.size(); col += 1) {
+            for (int row = board.size() - 1; row >= 0; row -= 1) {
+                Tile t1 = board.tile(col, row);
+                if (t1 == null) {
+                    for (int row2 = row - 1; row2 >= 0; row2 -= 1) {
                         Tile t2 = board.tile(col, row2);
                         if (t2 != null) {
                             board.move(col, row, t2);
                             changed = true;
+                            break;
                         }
                     }
                 }
             }
         }
-
+        board.setViewingPerspective(Side.NORTH);
         checkGameOver();
         if (changed) {
             setChanged();
