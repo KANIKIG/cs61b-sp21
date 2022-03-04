@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        ""
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/mac/Documents/JavaProjects/cs61b/library-sp21/javalib/**/*.jar"
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "java.project.sourcePaths": [
+        "lab2setup",
+        "lab2"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "library-sp21/javalib/algs4.jar",
+        "library-sp21/javalib/CS61B/**/*.jar",
+        "library-sp21/javalib/hamcrest-core-1.3.jar",
+        "library-sp21/javalib/jh61b.jar",
+        "library-sp21/javalib/junit-4.12.jar",
+        "library-sp21/javalib/org/**/*.jar",
+        "library-sp21/javalib/stdlib-package.jar",
+        "library-sp21/javalib/stdlib.jar",
+        "library-sp21/javalib/ucb.jar",
+        "library-sp21/javalib/xchart-3.5.1.jar"
+    ],
+    "java.dependency.packagePresentation": "flat"
+}
