@@ -59,8 +59,11 @@ public class BuggyAList<Item> {
     /** Deletes item from back of the list and
       * returns deleted item. */
     public Item removeLast() {
+        System.out.println("size:" + size);
+        System.out.println("items.length:" + items.length);
         if ((size < items.length / 4) && (size > 4)) {
-            resize(size / 4);
+            System.out.println("resize:" + size / 4);
+            resize(items.length / 4);       
         }
         Item x = getLast();
         items[size - 1] = null;
