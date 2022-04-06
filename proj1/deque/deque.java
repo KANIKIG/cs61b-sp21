@@ -1,6 +1,6 @@
 package deque;
 
-public interface deque<T> {
+public interface Deque<T> {
     public void addFirst(T item);
     public void addLast(T item);
     public int size();
