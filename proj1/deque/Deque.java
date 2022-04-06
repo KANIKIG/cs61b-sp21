@@ -4,12 +4,8 @@ public interface Deque<T> {
     void addFirst(T item);
     void addLast(T item);
     int size();
-    default public boolean isEmpty() {
-        if (size() == 0) {
-            return true;
-        } else {
-            return false;
-        }
+    default boolean isEmpty() {
+        return size() == 0;
     }
     void printDeque();
     T removeFirst();
