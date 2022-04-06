@@ -63,12 +63,12 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         size = size + 1;
     }
 
-    public T getFirst() {
+    private T getFirst() {
         int ind = arrayInd(0);
         return items[ind];
     }
 
-    public T getLast() {
+    private T getLast() {
         int ind = arrayInd(size - 1);
         return items[ind];
     }
