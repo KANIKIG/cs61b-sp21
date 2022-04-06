@@ -166,7 +166,7 @@ public class LinkedListDeque<T> implements deque<T>, Iterable<T> {
         return true;
     }
 
-    public static void main(String[] args) {
+    private static void main(String[] args) {
         LinkedListDeque<Integer> lld = new LinkedListDeque<>();
         lld.addFirst(42);
         lld.addFirst(23);

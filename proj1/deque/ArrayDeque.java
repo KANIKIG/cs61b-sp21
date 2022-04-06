@@ -168,7 +168,7 @@ public class ArrayDeque<T> implements deque<T>, Iterable<T> {
         }
     }
 
-    public static void main(String[] args) {
+    private static void main(String[] args) {
         int n = 99;
 
         ArrayDeque<Integer> ad1 = new ArrayDeque<>();
