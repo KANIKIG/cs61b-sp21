@@ -2,10 +2,11 @@ package deque;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Comparator;
 
 
 /** Performs some basic linked list tests. */
-public class ArrayDequeTest {
+public class MaxArrayDequeTest {
 
     @Test
     /** Adds a few things to the list, checking isEmpty() and size() are correct,
@@ -16,7 +17,15 @@ public class ArrayDequeTest {
 
         // System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
-        ArrayDeque<String> ad1 = new ArrayDeque<String>();
+        Comparator<String> cmp = new Comparator<>() {
+            //重写排序方法
+            @Override
+            public int compare(String strA, String strB) {
+                return strB.compareTo(strA);
+              }
+        };
+        
+        MaxArrayDeque ad1 = new MaxArrayDeque(cmp);
 
 		assertTrue("A newly initialized LLDeque should be empty", ad1.isEmpty());
 		ad1.addFirst("front");
@@ -41,8 +50,21 @@ public class ArrayDequeTest {
     public void addRemoveTest() {
 
         // System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
+        Comparator<Integer> cmp = new Comparator<>() {
+            //重写排序方法
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if (o1 > o2) {
+                    return -1;
+                } else if (o1 < o2) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        };
         
-        ArrayDeque<Integer> ad1 = new ArrayDeque<Integer>();
+        MaxArrayDeque ad1 = new MaxArrayDeque(cmp);
 		// should be empty
 		assertTrue("ad1 should be empty upon initialization", ad1.isEmpty());
 
@@ -61,8 +83,21 @@ public class ArrayDequeTest {
     public void removeEmptyTest() {
 
         // System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
+        Comparator<Integer> cmp = new Comparator<>() {
+            //重写排序方法
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if (o1 > o2) {
+                    return -1;
+                } else if (o1 < o2) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        };
         
-        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        MaxArrayDeque ad1 = new MaxArrayDeque(cmp);
         ad1.addFirst(3);
 
         ad1.removeLast();
@@ -79,58 +114,31 @@ public class ArrayDequeTest {
     }
 
     @Test
-    /* Check if you can create ArrayDeques with different parameterized types*/
-    public void multipleParamTest() {
-
-        
-        ArrayDeque<String>  ad1 = new ArrayDeque<String>();
-        ArrayDeque<Double>  ad2 = new ArrayDeque<Double>();
-        ArrayDeque<Boolean> ad3 = new ArrayDeque<Boolean>();
-
-        ad1.addFirst("string");
-        ad2.addFirst(3.14159);
-        ad3.addFirst(true);
-
-        String s = ad1.removeFirst();
-        double d = ad2.removeFirst();
-        boolean b = ad3.removeFirst();
-        
-    }
-
-    @Test
-    /* check if null is return when removing from an empty ArrayDeque. */
+    /* check if null is return when removing from an empty MaxArrayDeque. */
     public void emptyNullReturnTest() {
 
         // System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
         
-        ArrayDeque<Integer> ad1 = new ArrayDeque<Integer>();
+        Comparator<Integer> cmp = new Comparator<>() {
+            //重写排序方法
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                if (o1 > o2) {
+                    return -1;
+                } else if (o1 < o2) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        };
+        
+        MaxArrayDeque ad1 = new MaxArrayDeque(cmp);
 
         boolean passed1 = false;
         boolean passed2 = false;
         assertEquals("Should return null when removeFirst is called on an empty Deque,", null, ad1.removeFirst());
         assertEquals("Should return null when removeLast is called on an empty Deque,", null, ad1.removeLast());
-
-        
-    }
-
-    @Test
-    /* Add large number of elements to deque; check if order is correct. */
-    public void bigLLDequeTest() {
-
-        // System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-        
-        ArrayDeque<Integer> ad1 = new ArrayDeque<Integer>();
-        for (int i = 0; i < 1000000; i++) {
-            ad1.addLast(i);
-        }
-
-        for (double i = 0; i < 500000; i++) {
-            assertEquals("Should have the same value", i, (double) ad1.removeFirst(), 0.0);
-        }
-
-        for (double i = 999999; i > 500000; i--) {
-            assertEquals("Should have the same value", i, (double) ad1.removeLast(), 0.0);
-        }
 
         
     }

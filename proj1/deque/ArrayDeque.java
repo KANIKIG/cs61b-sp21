@@ -63,14 +63,6 @@ public class ArrayDeque<T> implements deque<T>, Iterable<T> {
         size = size + 1;
     }
 
-    public boolean isEmpty(){
-        if (size == 0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
     public T getFirst() {
         int ind = arrayInd(0);
         return items[ind];
@@ -170,7 +162,7 @@ public class ArrayDeque<T> implements deque<T>, Iterable<T> {
         return true;
     }
 
-    public void printArray() {
+    private void printArray() {
         for (int i = 0; i < items.length; i += 1) {
             System.out.print(items[i] + " ");
         }
@@ -188,6 +180,8 @@ public class ArrayDeque<T> implements deque<T>, Iterable<T> {
         for (int i = n; i >= 0; i--) {
             ad2.addFirst(i);
         }
+
+        ad1.printDeque();
 
         System.out.println(ad1.equals(ad2));
     }
