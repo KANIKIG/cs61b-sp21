@@ -69,7 +69,7 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
             @Override
             public int compare(String strA, String strB) {
                 return strB.compareTo(strA);
-              }
+            }
         };
 
         MaxArrayDeque mad2 = new MaxArrayDeque(cmp2);

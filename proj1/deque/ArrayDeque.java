@@ -35,7 +35,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         }
     }
 
-    public void addFirst(T item){
+    public void addFirst(T item) {
         if (size == items.length - 2) {
             resize((int) (items.length * 2));
         }
@@ -112,7 +112,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         return item;
     }
 
-    public void printDeque(){
+    public void printDeque() {
         for (T i : this) {
             System.out.print(i + " ");
         }
@@ -125,7 +125,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     private class ArrayDequeIterator implements Iterator<T> {
         private int wizPos;
 
-        public ArrayDequeIterator() {
+        private ArrayDequeIterator() {
             wizPos = 0;
         }
 
