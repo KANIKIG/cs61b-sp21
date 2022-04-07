@@ -16,7 +16,7 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
         }
         T maxItem = this.get(0);
         for (T i : this) {
-            if (cmp.compare(maxItem, i) > 0) {
+            if (cmp.compare(i, maxItem) > 0) {
                 maxItem = i;
             }
         }
@@ -29,24 +29,21 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
         }
         T maxItem = this.get(0);
         for (T i : this) {
-            if (c.compare(maxItem, i) > 0) {
+            if (c.compare(i, maxItem) > 0) {
                 maxItem = i;
             }
         }
         return maxItem;
     }
 
-    private static void main(String[] args) {
-
-
+    public static void main(String[] args) {
         Comparator<Integer> cmp = new Comparator<>() {
-            //重写排序方法
             @Override
             public int compare(Integer o1, Integer o2) {
                 if (o1 > o2) {
-                    return -1;
-                } else if (o1 < o2) {
                     return 1;
+                } else if (o1 < o2) {
+                    return -1;
                 } else {
                     return 0;
                 }
@@ -55,12 +52,12 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
         
         MaxArrayDeque mad1 = new MaxArrayDeque(cmp);
 
-        int n = 10;
+        int n = 99;
 
         for (int i = n; i >= 0; i--) {
-            mad1.addLast(i);
+            mad1.addFirst(i);
         }
-        
+
         System.out.println(mad1.max());
         System.out.println(mad1.max(cmp));
 
@@ -68,7 +65,7 @@ public class MaxArrayDeque<T> extends ArrayDeque<T> {
             //重写排序方法
             @Override
             public int compare(String strA, String strB) {
-                return strB.compareTo(strA);
+                return strA.compareTo(strB);
             }
         };
 

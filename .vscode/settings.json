@@ -1,8 +1,5 @@
 {
     "java.project.sourcePaths": [
-        "lab3",
-        "lab2setup",
-        "lab2",
         "proj1"
     ],
     "java.project.referencedLibraries": [
