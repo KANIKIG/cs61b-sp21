@@ -18,5 +18,7 @@
         "library-sp21/javalib/ucb.jar",
         "library-sp21/javalib/xchart-3.5.1.jar"
     ],
-    "java.dependency.packagePresentation": "flat"
+    "java.dependency.packagePresentation": "flat",
+    "java.checkstyle.version": "8.18",
+    "java.checkstyle.configuration": "${workspaceFolder}/library-sp21/javalib/61b_checks.xml"
 }
