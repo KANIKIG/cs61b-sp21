@@ -18,7 +18,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
 
     public LinkedListDeque() {
         sentinel = new Node(null, null);
-		size = 0;
+        size = 0;
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
     }
@@ -104,7 +104,6 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
             return null;
         }
         int nodeInd = 0;
-
         return getRecurHelper(index, nodeInd, p);
     }
 
@@ -114,22 +113,21 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
 
     private class LinkedListIterator implements Iterator<T> {
         private int wizPos;
-
         private LinkedListIterator() {
             wizPos = 0;
         }
-
+        
         public boolean hasNext() {
             return wizPos < size;
         }
-
+        
         public T next() {
             T item = get(wizPos);
             wizPos += 1;
             return item;
         }
     }
-
+    
     public void printDeque() {
         for (Node p = sentinel.next; p.item != null; p = p.next) {
             System.out.print(p.item + " ");
@@ -163,18 +161,14 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         lld.addFirst(42);
         lld.addFirst(23);
         lld.addFirst(5);
-
         LinkedListDeque<Integer> lld2 = new LinkedListDeque<>();
         lld2.addLast(5);
         lld2.addLast(23);
         lld2.addLast(42);
-
         lld.printDeque();
-        
         for (int i : lld) {
             System.out.print(i + " ");
         }
-
         System.out.println(lld.equals(lld2));
     }
 }
